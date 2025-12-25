@@ -196,10 +196,19 @@ function App() {
         messages: [
           {
             role: "system",
-            content: `你是一个智能知识库助手。请分析用户输入的文本。
-            1. **自动分类**：'code' (代码/报错), 'english' (单词/句子), 'note' (普通笔记)。
-            2. **提取卡片**：提取关键知识点。
-            返回纯 JSON：{ "category": "...", "flashcards": [{"front": "...", "back": "..."}] }`
+            content: `你是一个专业的英语老师、知识助手、以及高级程序员。请分析用户输入：
+        
+            1. **严格分类原则**：
+               - 'code': 包含代码片段、编程报错、终端命令。
+               - 'english': 输入的是英文单词、短语、句子（哪怕它在解释技术概念，只要是学英语用途，都算 english）。
+               - 'note': 纯中文的笔记、百科知识、复杂概念解释。
+               
+            2. **处理规则**：
+               - **如果是 'english'**：请制作“单词卡”或“翻译卡”。正面是英文，背面是中文释义+例句。
+               - **如果是 'code'**：正面是代码/报错，背面是修复/解释。
+            
+            返回纯 JSON 格式：
+            { "category": "code" | "english" | "note", "flashcards": [{"front": "...", "back": "..."}] }`
           },
           { role: "user", content: inputText }
         ],
