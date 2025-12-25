@@ -58,7 +58,7 @@ function App() {
 
   // === 🔊 核心功能：语音朗读 ===
   const speak = (text: string, category: string) => {
-    // 只有英语和代码朗读效果好，笔记如果是中文也可以读，但这里我们优先优化英语
+    // 只有英语和代码朗读效果好，笔记如果是中文也可以读，但这里我们优先优化英语.
     const utterance = new SpeechSynthesisUtterance(text)
     
     // 简单的语言判断
